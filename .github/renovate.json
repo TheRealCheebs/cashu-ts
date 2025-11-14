@@ -2,11 +2,11 @@
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"enabledManagers": [],
 	"schedule": ["at any time"],
-	"ignorePaths": ["**", "!Makefile", "!**/renovate.json"],
 	"packageRules": [
 		{
 			"matchManagers": ["regex"],
 			"matchPackageNames": ["docker.io/cashubtc/nutshell"],
+			"matchFileNames": ["Makefile"],
 			"groupName": "nutshell-docker",
 			"automerge": false,
 			"labels": ["renovate", "docker", "nutshell"]
@@ -14,6 +14,7 @@
 		{
 			"matchManagers": ["regex"],
 			"matchPackageNames": ["docker.io/cashubtc/mintd"],
+			"matchFileNames": ["Makefile"],
 			"groupName": "mintd-docker",
 			"automerge": false,
 			"labels": ["renovate", "docker", "mintd"]
