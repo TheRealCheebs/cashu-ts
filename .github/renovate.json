@@ -1,7 +1,7 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"enabledManagers": ["regex"],
-	"baseBranch": "chore/renovate-images",
+	"baseBranch": "development",
 	"schedule": ["at any time"],
 	"packageRules": [
 		{

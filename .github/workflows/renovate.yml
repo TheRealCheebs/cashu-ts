@@ -22,5 +22,4 @@ jobs:
           configurationFile: .github/renovate.json
         env:
           renovate-version: 42.2.0
-          LOG_LEVEL: 'debug'
           RENOVATE_REPOSITORIES: ${{ github.repository }}
