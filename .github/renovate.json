@@ -1,19 +1,18 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"extends": ["config:recommended"],
-	"enabledManagers": ["dockerfile"],
 	"schedule": ["at any time"],
 	"packageRules": [
 		{
-			"matchManagers": ["dockerfile"],
-			"matchPackageNames": ["cashubtc/nutshell"],
+			"matchManagers": ["regex"],
+			"matchPackageNames": ["docker.io/cashubtc/nutshell"],
 			"groupName": "nutshell-docker",
 			"automerge": false,
 			"labels": ["renovate", "docker", "nutshell"]
 		},
 		{
-			"matchManagers": ["dockerfile"],
-			"matchPackageNames": ["cashubtc/mintd"],
+			"matchManagers": ["regex"],
+			"matchPackageNames": ["docker.io/cashubtc/mintd"],
 			"groupName": "mintd-docker",
 			"automerge": false,
 			"labels": ["renovate", "docker", "mintd"]
@@ -22,10 +21,10 @@
 	"customManagers": [
 		{
 			"customType": "regex",
-			"managerFilePatterns": ["/^Makefile$/"],
+			"managerFilePatterns": ["**/Makefile"],
 			"matchStrings": [
-				"(?<depName>cashubtc/(mintd|nutshell)):(?<currentValue>[0-9]+(?:\\.[0-9]+)*[^\\s]*)"
-			],
+        "(?<depName>cashubtc/(?:mintd|nutshell)):(?<currentValue>[0-9]+(?:\\.[0-9]+)*(?:-[a-zA-Z0-9]+)?)"
+      ],
 			"datasourceTemplate": "docker",
 			"depNameTemplate": "docker.io/{{depName}}",
 			"versioningTemplate": "semver"
