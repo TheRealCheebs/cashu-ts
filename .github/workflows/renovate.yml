@@ -32,6 +32,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           configurationFile: .github/renovate.json
+          args: --autodiscover
         env:
           RENOVATE_BASE_BRANCH_PATTERNS: '["development"]'
           LOG_LEVEL: 'debug'
