@@ -3,20 +3,22 @@ name: Renovate
 on:
   schedule:
     - cron: '0 2 * * *' # daily at 02:00 UTC
-  workflow_dispatch: {}
-  push:
-    branches:
-      - develop
+  workflow_dispatch: {} # allows manual testing
 
 jobs:
   renovate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Run Renovate
         uses: renovate-actions/renovate@v36
         with:
-          # allow Renovate to use its default token from GITHUB_TOKEN
           token: ${{ secrets.GITHUB_TOKEN }}
+          configurationFile: .github/renovate.json
         env:
-          # ensure Docker Hub is checked (Renovate uses registry credentials if provided)
-          RENOVATE_DOCKER_COM_AUTH: 'true'
+          RENOVATE_BASE_BRANCH_PATTERNS: '["development"]'
