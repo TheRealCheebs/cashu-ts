@@ -21,5 +21,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           configurationFile: .github/renovate.json
         env:
-          RENOVATE_BASE_BRANCH_PATTERNS: '["chore/renovate-images"]'
           LOG_LEVEL: 'debug'
