@@ -20,10 +20,9 @@
 			"labels": ["renovate", "docker", "mintd"]
 		}
 	],
-	"customManagers": [
+	"regexManagers": [
 		{
-			"customType": "regex",
-			"managerFilePatterns": ["^Makefile$"],
+			"fileMatch": ["^Makefile$"],
 			"matchStrings": [
 				"(?<depName>cashubtc/(?:mintd|nutshell)):(?<currentValue>[0-9]+(?:\\.[0-9]+)*(?:-[a-zA-Z0-9]+)?)"
 			],
