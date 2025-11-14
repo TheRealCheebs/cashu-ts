@@ -12,18 +12,6 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - name: Checkout repository (debug)
-        uses: actions/checkout@v4
-
-      - name: Debug repo contents
-        run: |
-          echo "PWD: $(pwd)"
-          echo "Git ref: ${{ github.ref }}"
-          echo "Git branch: $(git rev-parse --abbrev-ref HEAD || echo 'detached')"
-          echo "List top-level files:"; ls -la || true
-          echo "List .github folder:"; ls -la .github || true
-          echo "Show .github/renovate.json (if present):"; sed -n '1,200p' .github/renovate.json || echo "no renovate.json"
-          echo "Does Makefile exist?"; if [ -f Makefile ]; then echo yes; else echo no; fi
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -32,7 +20,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           configurationFile: .github/renovate.json
-          args: --autodiscover
         env:
           RENOVATE_BASE_BRANCH_PATTERNS: '["development"]'
           LOG_LEVEL: 'debug'
