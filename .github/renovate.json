@@ -6,7 +6,7 @@
 	"packageRules": [
 		{
 			"matchManagers": ["regex"],
-			"matchPackageNames": ["docker.io/cashubtc/nutshell"],
+			"matchPackageNames": ["cashubtc/nutshell"],
 			"matchFileNames": ["Makefile"],
 			"groupName": "nutshell-docker",
 			"automerge": false,
@@ -14,7 +14,7 @@
 		},
 		{
 			"matchManagers": ["regex"],
-			"matchPackageNames": ["docker.io/cashubtc/mintd"],
+			"matchPackageNames": ["cashubtc/mintd"],
 			"matchFileNames": ["Makefile"],
 			"groupName": "mintd-docker",
 			"automerge": false,
@@ -28,7 +28,7 @@
 				"(?<depName>cashubtc/(?:mintd|nutshell)):(?<currentValue>[0-9]+(?:\\.[0-9]+)*(?:-[a-zA-Z0-9]+)?)"
 			],
 			"datasourceTemplate": "docker",
-			"depNameTemplate": "docker.io/{{depName}}",
+			"depNameTemplate": "{{depName}}",
 			"versioningTemplate": "semver"
 		}
 	]
