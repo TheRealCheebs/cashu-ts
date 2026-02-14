@@ -8,24 +8,44 @@
 			"matchManagers": ["regex"],
 			"matchPackageNames": ["docker.io/cashubtc/nutshell"],
 			"matchFileNames": ["Makefile"],
-			"groupName": "nutshell-docker",
+			"groupName": "nutshell-stable",
 			"automerge": false,
 			"labels": ["renovate", "docker", "nutshell"]
 		},
 		{
 			"matchManagers": ["regex"],
+			"matchPackageNames": ["docker.io/cashubtc/nutshell"],
+			"matchFileNames": ["Makefile"],
+			"groupName": "nutshell-rc",
+			"automerge": false,
+			"allowedVersions": "/-rc\\./",
+			"ignoreUnstable": false,
+			"labels": ["renovate", "docker", "nutshell", "rc"]
+		},
+		{
+			"matchManagers": ["regex"],
 			"matchPackageNames": ["docker.io/cashubtc/mintd"],
 			"matchFileNames": ["Makefile"],
-			"groupName": "mintd-docker",
+			"groupName": "mintd-stable",
 			"automerge": false,
 			"labels": ["renovate", "docker", "mintd"]
+		},
+		{
+			"matchManagers": ["regex"],
+			"matchPackageNames": ["docker.io/cashubtc/mintd"],
+			"matchFileNames": ["Makefile"],
+			"groupName": "mintd-rc",
+			"automerge": false,
+			"allowedVersions": "/-rc\\./",
+			"ignoreUnstable": false,
+			"labels": ["renovate", "docker", "mintd", "rc"]
 		}
 	],
 	"regexManagers": [
 		{
 			"fileMatch": ["^Makefile$"],
 			"matchStrings": [
-				"(?<depName>cashubtc/(?:mintd|nutshell)):(?<currentValue>[0-9]+(?:\\.[0-9]+)*(?:-[a-zA-Z0-9]+)?)"
+				"(?<depName>cashubtc/(?:mintd|nutshell)):(?<currentValue>\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?)"
 			],
 			"datasourceTemplate": "docker",
 			"depNameTemplate": "docker.io/{{depName}}",
